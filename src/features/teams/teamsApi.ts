@@ -1,6 +1,6 @@
 
 import { apiSlice } from "../api/apiSlice";
-export const teamApi = apiSlice.injectEndpoints({
+export const teamsApi = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getTeams: builder.query({
             query: (email) => `/teams?participants_like=${email}&_sort=timestamp&_order=desc`,
@@ -24,7 +24,7 @@ export const teamApi = apiSlice.injectEndpoints({
             async onQueryStarted(arg, { queryFulfilled, dispatch }) {
                 const team = await queryFulfilled;
                 dispatch(
-                    teamApi.util.updateQueryData(
+                    teamsApi.util.updateQueryData(
                         "getTeams",
                         arg.participants,
                         (draft) => {
@@ -47,4 +47,4 @@ export const teamApi = apiSlice.injectEndpoints({
     })
 })
 
-export const { useGetTeamsQuery, useAddMemberMutation, useAddTeamMutation, useDeleteTeamMutation } = teamApi;
+export const { useGetTeamsQuery, useAddMemberMutation, useAddTeamMutation, useDeleteTeamMutation } = teamsApi;
