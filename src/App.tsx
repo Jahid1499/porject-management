@@ -1,11 +1,43 @@
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import PublicRoute from "./components/PublicRoute";
+import useAuthCheck from "./hooks/useAuthCheck";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+
 function App() {
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline bg-green-800 py-12 px-5 text-white">
-        Hello world!
-      </h1>
-    </>
+  const authChecked = useAuthCheck();
+
+  return !authChecked ? (
+    <div>Checking authentication....</div>
+  ) : (
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
+        {/* <Route
+          path="/inbox"
+          element={
+            <PrivateRoute>
+              <Conversation />
+            </PrivateRoute>
+          }
+        /> */}
+      </Routes>
+    </Router>
   );
 }
-
 export default App;
