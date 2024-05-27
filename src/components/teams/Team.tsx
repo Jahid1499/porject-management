@@ -2,11 +2,14 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import swal from "sweetalert";
+import editImage from "../../assets/images/edit-button.svg";
 import {
   useAddMemberMutation,
   useDeleteTeamMutation,
+  useUpdateTeamMutation,
 } from "../../features/teams/teamsApi";
 import { TeamTypes } from "../../types/types";
+import EditModal from "./EditModal";
 import MemberModal from "./MemberModal";
 const Team = ({
   name,
@@ -17,6 +20,7 @@ const Team = ({
   participants,
 }: TeamTypes) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [editModalOpen, setEditModalOpen] = useState(false);
   const { user: loggedInUser } = useSelector((state) => state.auth) || {};
   const { email: myEmail } = loggedInUser || {};
   const [deleteTeam, { isSuccess: deleteTeamSuccess }] =
@@ -27,6 +31,9 @@ const Team = ({
     { data, isLoading: addTeamLoading, error: responseError, isSuccess },
   ] = useAddMemberMutation();
 
+  const [updateTeam, { data: updateTeamData, isSuccess: updateIsSuccess }] =
+    useUpdateTeamMutation();
+
   const creator = participants?.split("-");
 
   const modalHandler = () => {
@@ -34,9 +41,7 @@ const Team = ({
   };
 
   const submitHandler = (data) => {
-    console.log(data);
     const memberString = data.map((member) => member).join("-");
-    console.log(memberString);
     addMember({
       id,
       data: {
@@ -72,6 +77,22 @@ const Team = ({
       swal("Success", "Successfully team deleted!", "success");
     }
   }, [deleteTeamSuccess]);
+
+  const editModalHandler = () => {
+    setEditModalOpen((prev) => !prev);
+  };
+
+  const updateHandler = (data) => {
+    const { name, color, description } = data;
+    updateTeam({
+      id: id,
+      data: {
+        name,
+        color,
+        description,
+      },
+    });
+  };
 
   return (
     <>
@@ -112,6 +133,13 @@ const Team = ({
                 d="M 10.806641 2 C 10.289641 2 9.7956875 2.2043125 9.4296875 2.5703125 L 9 3 L 4 3 A 1.0001 1.0001 0 1 0 4 5 L 20 5 A 1.0001 1.0001 0 1 0 20 3 L 15 3 L 14.570312 2.5703125 C 14.205312 2.2043125 13.710359 2 13.193359 2 L 10.806641 2 z M 4.3652344 7 L 5.8925781 20.263672 C 6.0245781 21.253672 6.877 22 7.875 22 L 16.123047 22 C 17.121047 22 17.974422 21.254859 18.107422 20.255859 L 19.634766 7 L 4.3652344 7 z"
               ></path>
             </svg>
+          </button>
+
+          <button
+            onClick={() => editModalHandler()}
+            className="absolute top-0 right-12 flex items-center justify-center hidden w-5 h-5 mt-3 mr-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-700 group-hover:flex"
+          >
+            <img src={editImage} alt="Edit team" />
           </button>
 
           <span
@@ -186,6 +214,16 @@ const Team = ({
           modalHandler={modalHandler}
           participants={participants}
           submitHandler={submitHandler}
+        />
+      )}
+
+      {editModalOpen && (
+        <EditModal
+          modalHandler={editModalHandler}
+          submitHandler={updateHandler}
+          name={name}
+          color={color}
+          description={description}
         />
       )}
     </>

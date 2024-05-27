@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 
 const init = {
   name: "",
@@ -6,20 +6,23 @@ const init = {
   color: "",
 };
 
-const Modal = ({ modalHandler, submitHandler }) => {
-  const [formData, setFormData] = useState(init);
-  const { name, color, description } = formData || {};
-
+const EditModal = ({
+  modalHandler,
+  submitHandler,
+  name: previousName,
+  color: previousColor,
+  description: previousDescription,
+}) => {
   const [error, setError] = useState(init);
 
-  const onChangeHandler = (
-    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+  const [name, setName] = useState(previousName);
+  const [color, setColor] = useState(previousColor);
+  const [description, setDescription] = useState(previousDescription);
+
+  const reset = () => {
+    setName("");
+    setColor("");
+    setDescription("");
   };
 
   const onSubmitHandler = (e: { preventDefault: () => void }) => {
@@ -37,7 +40,7 @@ const Modal = ({ modalHandler, submitHandler }) => {
       });
     }
 
-    if (formData.color === "") {
+    if (color === "") {
       setError({
         ...error,
         color: "Color name is required",
@@ -49,7 +52,7 @@ const Modal = ({ modalHandler, submitHandler }) => {
       });
     }
 
-    if (formData.description === "") {
+    if (description === "") {
       setError({
         ...error,
         description: "Description is required",
@@ -62,14 +65,15 @@ const Modal = ({ modalHandler, submitHandler }) => {
     }
 
     if (name || description || color) {
-      submitHandler(formData);
-      setFormData({ ...init });
+      submitHandler({ name, color, description });
+      modalHandler();
+      reset();
       setError({ ...init });
     }
   };
 
   const handleClose = () => {
-    setFormData({ ...init });
+    reset();
     setError({ ...init });
     modalHandler();
   };
@@ -122,7 +126,7 @@ const Modal = ({ modalHandler, submitHandler }) => {
                   </label>
                   <input
                     type="text"
-                    onChange={(e) => onChangeHandler(e)}
+                    onChange={(e) => setName(e.target.value)}
                     value={name}
                     name="name"
                     id="name"
@@ -146,7 +150,7 @@ const Modal = ({ modalHandler, submitHandler }) => {
                   </label>
                   <textarea
                     id="description"
-                    onChange={(e) => onChangeHandler(e)}
+                    onChange={(e) => setDescription(e.target.value)}
                     value={description}
                     name="description"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
@@ -173,7 +177,7 @@ const Modal = ({ modalHandler, submitHandler }) => {
                   <input
                     type="text"
                     name="color"
-                    onChange={(e) => onChangeHandler(e)}
+                    onChange={(e) => setColor(e.target.value)}
                     value={color}
                     id="color"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
@@ -191,7 +195,7 @@ const Modal = ({ modalHandler, submitHandler }) => {
                   type="submit"
                   className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
-                  Add new team
+                  Update team
                 </button>
               </form>
             </div>
@@ -202,4 +206,4 @@ const Modal = ({ modalHandler, submitHandler }) => {
   );
 };
 
-export default Modal;
+export default EditModal;

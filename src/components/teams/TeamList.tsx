@@ -59,7 +59,9 @@ const TeamList = () => {
   } else if (!isLoading && !isError && teams?.length === 0) {
     content = <li className="m-2 text-center">No team found!</li>;
   } else if (!isLoading && !isError && teams?.length > 0) {
-    content = teams.map((team) => <Team key={team.id} {...team} />);
+    content = teams.map((team) => (
+      <Team modalHandler={modalHandler} key={team.id} {...team} />
+    ));
   }
 
   return (
