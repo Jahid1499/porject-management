@@ -69,8 +69,13 @@ const Template = ({ children, searchOption = false }) => {
             </NavLink>
           </div>
 
-          <button className="flex items-center justify-center w-8 h-8 ml-auto overflow-hidden rounded-full cursor-pointer">
-            <img src={user.avatar} alt="" />
+          {/* <button className="flex items-center justify-center w-10 h-10 ml-auto overflow-hidden rounded-full cursor-pointer"> */}
+          {/* <img src={user.avatar} alt="" /> */}
+          {/* <img src={logoImage} className="h-10 w-10" /> */}
+          {/* </button> */}
+
+          <button className="ml-auto cursor-pointer">
+            <img src={user.avatar} className="h-10 w-10 rounded-full" />
           </button>
 
           <button onClick={logout}>
