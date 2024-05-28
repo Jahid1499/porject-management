@@ -1,9 +1,10 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
-import Projects from "./components/projects/Projects";
+
 import useAuthCheck from "./hooks/useAuthCheck";
 import Login from "./pages/Login";
+import Project from "./pages/Project";
 import Register from "./pages/Register";
 import Teams from "./pages/Teams";
 
@@ -44,7 +45,7 @@ function App() {
           path="/projects"
           element={
             <PrivateRoute>
-              <Projects />
+              <Project />
             </PrivateRoute>
           }
         />

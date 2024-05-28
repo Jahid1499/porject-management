@@ -2,7 +2,7 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import swal from "sweetalert";
-import editImage from "../../assets/images/edit-button.svg";
+import editImage from "../../assets/images/edit_button.svg";
 import {
   useAddMemberMutation,
   useDeleteTeamMutation,
