@@ -1,6 +1,14 @@
 import { useDrop } from "react-dnd";
+import { ColumnPropsTypes } from "../../types/types";
 import { COLUMN_NAMES } from "./constants";
-const Column = ({ children, className, title, totalItem, modalHandler }) => {
+
+const Column = ({
+  children,
+  className,
+  title,
+  totalItem,
+  modalHandler,
+}: ColumnPropsTypes) => {
   const [{ isOver, canDrop }, drop] = useDrop({
     accept: "Our first type",
     drop: () => ({ name: title }),

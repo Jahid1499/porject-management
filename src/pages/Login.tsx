@@ -17,6 +17,7 @@ export default function Login() {
     if (responseError?.data) {
       setError(responseError?.data);
     }
+
     if (data?.accessToken && data?.user) {
       navigate("/teams");
     }

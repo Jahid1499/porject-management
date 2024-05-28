@@ -1,7 +1,14 @@
-import { useEffect, useState } from "react";
+// /* eslint-disable @typescript-eslint/no-unused-vars */
+import { ChangeEvent, useEffect, useState } from "react";
+import { EditModalForProjectPropsTypes, Team } from "../../types/types";
 import Error from "../ui/Error";
 
-const EditModal = ({ cancelEditHandler, submitHandler, teams, data }) => {
+const EditModal = ({
+  cancelEditHandler,
+  submitHandler,
+  teams,
+  data,
+}: EditModalForProjectPropsTypes) => {
   const [title, setTitle] = useState(data.title);
   const [editedTeam, setEditedTeam] = useState({});
   const [error, setError] = useState({});
@@ -12,16 +19,17 @@ const EditModal = ({ cancelEditHandler, submitHandler, teams, data }) => {
     setEditedTeam({ ...data.team });
   }, [data]);
 
-  const onChangeHandler = (e) => {
+  const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
     const { value } = e.target;
     if (value !== "Select one") {
-      const team = teams.filter((team) => team.id == value);
+      const team = teams.filter((team: Team) => team.id == value);
+      console.log(team);
       const { name, id, color } = team[0];
       setEditedTeam({ name, id, color });
     }
   };
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if (title === "") {
       setError((prev) => ({
@@ -38,7 +46,7 @@ const EditModal = ({ cancelEditHandler, submitHandler, teams, data }) => {
       }));
       return;
     }
-    submitHandler({ title, editedTeam, id });
+    submitHandler(title, editedTeam, id);
     setTitle("");
     setEditedTeam({});
     setError({});
