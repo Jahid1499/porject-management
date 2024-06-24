@@ -36,7 +36,7 @@ cd project-management
 2. First you need run server - for this follow those step
 
 ```sh
-cd server
+cd backend
 ```
 
 ```sh

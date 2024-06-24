@@ -1,0 +1,187 @@
+{
+  "users": [
+    {
+      "email": "sumit@learnwithsumit.com",
+      "password": "$2a$10$HLy27dNqbDXUTfi7YvcEMOckQaLUqM0RAZ9HrHxOVtmuVGAYmqSNG",
+      "name": "Sumit Saha",
+      "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+      "id": 1
+    },
+    {
+      "email": "akash@learnwithsumit.com",
+      "password": "$2a$10$Oc6jXnK6/pbSqmkngo/b.OhsU3JRf4OU1h9QwIoqz8ZUpG/hgHq72",
+      "name": "Akash Ahmed",
+      "avatar": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YXZhdGFyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+      "id": 2
+    },
+    {
+      "email": "saad@learnwithsumit.com",
+      "password": "$2a$10$DVGOgchZrtvb1w6Pj.B0D.DXmHmoTsdy3oXfwF.02kE/pzJ7jyHqy",
+      "name": "Saad Hasan",
+      "avatar": "https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+      "id": 3
+    },
+    {
+      "email": "anik@gamil.com",
+      "password": "$2a$10$HLy27dNqbDXUTfi7YvcEMOckQaLUqM0RAZ9HrHxOVtmuVGAYmqSNG",
+      "name": "anik",
+      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+      "id": 5
+    },
+    {
+      "email": "mizanur@gamil.com",
+      "password": "$2a$10$HLy27dNqbDXUTfi7YvcEMOckQaLUqM0RAZ9HrHxOVtmuVGAYmqSNG",
+      "name": "mizanur",
+      "avatar": "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGF2YXRhcnxlbnwwfHwwfHw%3D&w=1000&q=80",
+      "id": 6
+    },
+    {
+      "email": "hassan@gamil.com",
+      "password": "$2a$10$HLy27dNqbDXUTfi7YvcEMOckQaLUqM0RAZ9HrHxOVtmuVGAYmqSNG",
+      "name": "hassan",
+      "avatar": "https://images.unsplash.com/photo-1645830166230-187caf791b90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA5fHxhdmF0YXJ8ZW58MHx8MHx8&w=1000&q=80",
+      "id": 8
+    },
+    {
+      "email": "jahid@gmail.com",
+      "password": "$2a$10$X2OffCS1oESteB3lnOyqqejPcfkVu.ElwfSyepXTCrJlk.yNqvD3e",
+      "name": "jahid",
+      "id": 9
+    }
+  ],
+  "teams": [
+    {
+      "name": "Design",
+      "participants": "hassan@gamil.com-anik@gamil.com-mizanur@gamil.com",
+      "color": "green",
+      "description": "This team for design",
+      "timestamp": 1663853608350,
+      "id": 2
+    },
+    {
+      "name": "Marketing",
+      "participants": "sumit@learnwithsumit.com",
+      "color": "teal",
+      "description": "marketing description",
+      "timestamp": 1663858341963,
+      "id": 3
+    },
+    {
+      "name": "management",
+      "participants": "sumit@learnwithsumit.com",
+      "color": "lime",
+      "description": "management description",
+      "timestamp": 1663865411789,
+      "id": 5
+    },
+    {
+      "name": "HR",
+      "participants": "sumit@learnwithsumit.com",
+      "color": "rose",
+      "description": "Human resource",
+      "timestamp": 1663865598566,
+      "id": 6
+    },
+    {
+      "name": "Pro",
+      "participants": "sumit@learnwithsumit.com",
+      "color": "violet",
+      "description": "procurement department",
+      "timestamp": 1664129914855,
+      "id": 7
+    },
+    {
+      "name": "Dev",
+      "participants": "sumit@learnwithsumit.com",
+      "color": "teal",
+      "description": "development team",
+      "timestamp": 1664196378445,
+      "id": 8
+    },
+    {
+      "name": "hotel-booking",
+      "participants": "hassan@gamil.com-mizanur@gamil.com",
+      "color": "yellow",
+      "description": "description",
+      "timestamp": 1716841126563,
+      "id": 9
+    }
+  ],
+  "projects": [
+    {
+      "creator": {
+        "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+        "email": "sumit@learnwithsumit.com"
+      },
+      "team": {
+        "name": "HR",
+        "id": 6,
+        "color": "rose"
+      },
+      "title": "Qui maiores consequa",
+      "status": "Ready",
+      "timestamp": 1663887539176,
+      "id": 2
+    },
+    {
+      "creator": {
+        "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+        "email": "sumit@learnwithsumit.com"
+      },
+      "team": {
+        "name": "Marketing",
+        "id": 3,
+        "color": "teal"
+      },
+      "title": "Quia eum debitis vol",
+      "status": "Review",
+      "timestamp": 1663887572671,
+      "id": 4
+    },
+    {
+      "creator": {
+        "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+        "email": "sumit@learnwithsumit.com"
+      },
+      "team": {
+        "name": "management",
+        "id": 5,
+        "color": "lime"
+      },
+      "title": "Omnis alias quas et ",
+      "status": "Backlog",
+      "timestamp": 1664120450217,
+      "id": 5
+    },
+    {
+      "creator": {
+        "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+        "email": "sumit@learnwithsumit.com"
+      },
+      "team": {
+        "name": "Dev",
+        "id": 1,
+        "color": "green"
+      },
+      "title": "Illum cum non nesci",
+      "status": "Doing",
+      "timestamp": 1664130411599,
+      "id": 6
+    },
+    {
+      "creator": {
+        "avatar": "https://images.unsplash.com/photo-1645830166230-187caf791b90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA5fHxhdmF0YXJ8ZW58MHx8MHx8&w=1000&q=80",
+        "email": "hassan@gamil.com"
+      },
+      "team": {
+        "name": "hotel-booking",
+        "id": 9,
+        "color": "yellow"
+      },
+      "title": "This is hotel bookin project",
+      "status": "Backlog",
+      "timestamp": 1716888481350,
+      "id": 7
+    }
+  ]
+}
